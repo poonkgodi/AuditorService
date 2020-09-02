@@ -47,7 +47,7 @@ namespace AuditorService.Repositories
             CloudBlockBlob myBlockBlob = mycontainer.GetBlockBlobReference(fileName);
 
             // provide the location of the file need to be downloaded          
-            Stream fileupd = File.OpenWrite(@"D:\\MC\\mcservices-814292-master\\AuditorService\\Download" + fileName);
+            Stream fileupd = File.OpenWrite(@"D:\MC\mcservices-814292-master\AuditorService\Download\" + fileName);
             myBlockBlob.DownloadToStream(fileupd);
 
             Console.WriteLine("Download completed Successfully!!!!");

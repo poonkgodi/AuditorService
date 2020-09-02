@@ -22,6 +22,23 @@ namespace AuditorService.Controllers
         }
 
         //Get All Values
+        [HttpGet("GetClientRequest")]
+        public IEnumerable<AuditRequest> GetClientDetails(string filename,string azure_ContainerName)
+        {
+            try
+            {
+                UtilityRepository.AzureFileDownload(filename,azure_ContainerName);
+                IEnumerable<AuditRequest> objData = _repoEntity.GetAllasync();
+                return objData;
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = ex.Message;
+                return null;
+            }
+        }
+
+        //Get All Values
         [HttpGet("GetAuditRequest")]
         public IEnumerable<AuditRequest> GetDetails()
         {
