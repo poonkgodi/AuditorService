@@ -12,6 +12,8 @@ using System.Text;
 
 namespace AuditorService.Controllers
 {
+    [Route("api/[Controller]")]
+    [ApiController]
     public class AuditRequestController : ControllerBase
     {
         private readonly ILogger<AuditRequestController> _logger;
