@@ -49,6 +49,7 @@ namespace AuditorService.Repositories
             // provide the location of the file need to be downloaded          
             Stream fileupd = File.OpenWrite(@"D:\MC\mcservices-814292-master\AuditorService\Download\" + fileName);
             myBlockBlob.DownloadToStream(fileupd);
+            // New Release to verify CI/CD
 
             Console.WriteLine("Download completed Successfully!!!!");
         }
