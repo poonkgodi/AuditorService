@@ -83,7 +83,7 @@ namespace AuditorService.Controllers
                 string auditRequestID = repoEntity.AuditRequestID;
                 
                 string auditRequestMessage = JsonConvert.SerializeObject(repoEntity);
-                auditRequestMessage = repoEntity.ClientId + "|" + auditRequestMessage;
+                //auditRequestMessage = repoEntity.ClientId + "|" + auditRequestMessage;
                 var message = new Message(Encoding.UTF8.GetBytes(auditRequestMessage));
                 auditQueue.SendAsync(message);
 
