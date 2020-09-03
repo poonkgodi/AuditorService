@@ -106,20 +106,15 @@ namespace AuditorService.Controllers
         // PUT api/values
         [HttpPut]
         [Route("UpdateAuditRequestRecord/{id:int}")]
-        public IActionResult UpdateRequestData([FromBody] AuditRequest repoEntity, int id)
+        public void UpdateRequestData([FromBody] AuditRequest repoEntity, int id)
         {
             try
             {
                 int res = _repoEntity.Update(repoEntity);
-                if (res != 0)
-                {
-                    return Ok(res);
-                }
-                return Forbid();
             }
             catch (Exception ex)
             {
-                return null;
+                string Err = ex.Message;
             }
         }
 
