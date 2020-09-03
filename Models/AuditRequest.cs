@@ -17,9 +17,9 @@ namespace AuditorService.Models
         [Required]
         public int ClientId { get; set; }
         public string Request { get; set; }
-        public DateTime Created_Timestamp { get; set; }
-        public string Request_Comment { get; set; }
-        public string Response_Comment { get; set; }
+        public DateTime Created_Timestamp { get; set; } 
+        //public string Request_Comment { get; set; }
+        //public string Response_Comment { get; set; }
 
     }
 }
