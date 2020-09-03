@@ -105,8 +105,8 @@ namespace AuditorService.Controllers
 
         // PUT api/values
         [HttpPut]
-        [Route("UpdateAuditRequestRecord/{id:int}")]
-        public void UpdateRequestData([FromBody] AuditRequest repoEntity, int id)
+        [Route("UpdateAuditRequestRecord")]
+        public void UpdateRequestData([FromBody] AuditRequest repoEntity)
         {
             try
             {

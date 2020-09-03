@@ -11,7 +11,7 @@ namespace AuditorService.Models
     public class AuditRequest
     {
         public int Id { get; set; }
-        public string AuditorPortfolioID { get; set; }
+        public string AuditPortfolioID { get; set; }
         public string AuditRequestID { get; set; }
         public string AuditorID { get; set; }
         [Required]
