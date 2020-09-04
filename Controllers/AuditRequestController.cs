@@ -23,30 +23,29 @@ namespace AuditorService.Controllers
             this._repoEntity = repoEntity;
         }
 
-        //Get All Values
-        [HttpGet("GetClientRequest")]
-        public IEnumerable<AuditRequest> GetClientDetails(string filename,string azure_ContainerName)
-        {
-            try
-            {
-                UtilityRepository.AzureFileDownload(filename,azure_ContainerName);
-                IEnumerable<AuditRequest> objData = _repoEntity.GetAllasync();
-                return objData;
-            }
-            catch (Exception ex)
-            {
-                string errorMessage = ex.Message;
-                return null;
-            }
-        }
+        ////Get All Values
+        //[HttpGet("GetClientRequest")]
+        //public IEnumerable<AuditRequest> GetClientDetails(string filename,string azure_ContainerName)
+        //{
+        //    try
+        //    {
+        //        UtilityRepository.AzureFileDownload(filename,azure_ContainerName);
+        //        IEnumerable<AuditRequest> objData = _repoEntity.GetAllasync();
+        //        return objData;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string errorMessage = ex.Message;
+        //        return null;
+        //    }
+        //}
 
         //Get All Values
-        [HttpGet("GetAuditRequest")]
+        [HttpGet]
         public IEnumerable<AuditRequest> GetDetails()
         {
             try
             {
-                //UtilityRepository.AzureFileDownload();
                 IEnumerable<AuditRequest> objData = _repoEntity.GetAllasync();
                 return objData;
             }
@@ -57,21 +56,20 @@ namespace AuditorService.Controllers
             }
         }
 
-        //Get specific Values
-        [HttpGet("GetAuditRequestDetail/{id:int}")]
-        [ProducesResponseType(typeof(IEnumerable<AuditPortfolio>), (int)HttpStatusCode.OK)]
-        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        public IEnumerable<AuditRequest> GetSpecificDetail(int id)
-        {
-            IEnumerable<AuditRequest> objData = _repoEntity.GetAllasync();
-            objData = objData.Where(x => x.Id == id);
-            return objData;
-        }
+        ////Get specific Values
+        //[HttpGet("GetAuditRequestDetail/{id:int}")]
+        //[ProducesResponseType(typeof(IEnumerable<AuditPortfolio>), (int)HttpStatusCode.OK)]
+        //[ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        //[ProducesResponseType((int)HttpStatusCode.NoContent)]
+        //public IEnumerable<AuditRequest> GetSpecificDetail(int id)
+        //{
+        //    IEnumerable<AuditRequest> objData = _repoEntity.GetAllasync();
+        //    objData = objData.Where(x => x.Id == id);
+        //    return objData;
+        //}
 
         // POST api/values
         [HttpPost]
-        [Route("PostAuditRequestRecord")]
         public IActionResult AddRequest([FromBody] AuditRequest repoEntity)
         {
             try
@@ -105,7 +103,6 @@ namespace AuditorService.Controllers
 
         // PUT api/values
         [HttpPut]
-        [Route("UpdateAuditRequestRecord")]
         public void UpdateRequestData([FromBody] AuditRequest repoEntity)
         {
             try
@@ -120,7 +117,6 @@ namespace AuditorService.Controllers
 
         // PUT api/values
         [HttpDelete]
-        [Route("DeleteAuditRequestData/{id:int}")]
         public IActionResult DeleteRequestData(int id)
         {
             try
